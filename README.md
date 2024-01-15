@@ -59,8 +59,8 @@ Exit with Ctrl+C
 create plugin mongo
   implement by 'com.lealone.plugins.mongo.MongoPlugin' 
   class path 'E:\lealone\lealone-plugins\mongo\target\lealone-mongo-plugin-6.0.0-SNAPSHOT.jar'
-  --端口号默认就是3306，如果被其他进程占用了可以改成别的
-  parameters (port=3306);
+  --端口号默认就是27017，如果被其他进程占用了可以改成别的
+  parameters (port=27017);
  
 start plugin mongo;
 ```
