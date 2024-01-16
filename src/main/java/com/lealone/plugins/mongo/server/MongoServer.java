@@ -5,8 +5,10 @@
  */
 package com.lealone.plugins.mongo.server;
 
+import com.lealone.db.Database;
 import com.lealone.db.LealoneDatabase;
 import com.lealone.db.scheduler.Scheduler;
+import com.lealone.db.session.ServerSession;
 import com.lealone.net.WritableChannel;
 import com.lealone.plugins.mongo.MongoPlugin;
 import com.lealone.server.AsyncServer;
@@ -27,7 +29,10 @@ public class MongoServer extends AsyncServer<MongoServerConnection> {
 
         // 创建默认的 mongodb 数据库
         String sql = "CREATE DATABASE IF NOT EXISTS " + DATABASE_NAME;
-        LealoneDatabase.getInstance().getSystemSession().executeUpdateLocal(sql);
+        Database db = LealoneDatabase.getInstance();
+        try (ServerSession session = db.createSession(db.getSystemUser())) {
+            session.executeUpdateLocal(sql);
+        }
     }
 
     @Override
