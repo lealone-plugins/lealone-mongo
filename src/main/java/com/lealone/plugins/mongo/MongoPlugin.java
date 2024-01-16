@@ -38,6 +38,7 @@ public class MongoPlugin extends PluginBase {
 
     @Override
     public void close() {
+        stop();
         ProtocolServerEngine p = getProtocolServerEngine();
         if (p != null)
             PluginManager.deregister(ProtocolServerEngine.class, p);
