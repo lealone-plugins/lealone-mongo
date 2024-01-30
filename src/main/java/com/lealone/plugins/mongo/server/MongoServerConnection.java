@@ -60,7 +60,7 @@ public class MongoServerConnection extends AsyncServerConnection {
 
     public MongoServerConnection(MongoServer server, WritableChannel channel, Scheduler scheduler,
             int connectionId) {
-        super(channel, true);
+        super(channel);
         this.server = server;
         this.scheduler = scheduler;
         this.connectionId = connectionId;
@@ -271,7 +271,7 @@ public class MongoServerConnection extends AsyncServerConnection {
         BsonCommand.append(document, "ok", 0);
         BsonCommand.setN(document, 1);
         BsonCommand.append(document, "code", DbException.convert(t).getErrorCode());
-        BsonCommand.append(document, "errmsg", t.getMessage());
+        BsonCommand.append(document, "errmsg", t.getMessage() == null ? "" : t.getMessage());
         sendResponse(requestId, document);
     }
 
