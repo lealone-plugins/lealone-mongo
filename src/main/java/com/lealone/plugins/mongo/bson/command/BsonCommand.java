@@ -299,6 +299,9 @@ public abstract class BsonCommand extends BsonBase {
             append(document, "maxWriteBatchSize", 100000);
             return document;
         }
+        case "getlasterror": {
+            return newOkBsonDocument();
+        }
         default:
             BsonDocument ret = AdminCommand.execute(input, doc, conn, command, task);
             if (ret == NOT_FOUND)
