@@ -18,6 +18,8 @@ Lealone 是一个高度兼容 MongoDB 的文档数据库，可以使用 MongoDB 
 
 假设 jar 包的绝对路径是 `E:\lealone\lealone-plugins\mongo\target\lealone-mongo-plugin-6.0.0.jar`
 
+也可以直接下载插件 [lealone-mongo-plugin-6.0.0.jar](https://github.com/lealone-plugins/.github/releases/download/lealone-plugins-6.0.0/lealone-mongo-plugin-6.0.0.jar)
+
 
 ## 下载 Lealone
 
