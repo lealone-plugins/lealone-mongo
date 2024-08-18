@@ -21,7 +21,7 @@ public abstract class DiagnosticCommand extends BsonCommand {
         switch (command) {
         case "buildInfo": {
             BsonDocument document = new BsonDocument();
-            append(document, "version", "6.0.0");
+            append(document, "version", "6.0.1");
             setOk(document);
             return document;
         }
